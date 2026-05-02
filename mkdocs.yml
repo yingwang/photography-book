@@ -1,0 +1,86 @@
+site_name: 摄影：从按快门到出片
+site_description: 一本系统讲摄影判断力的中文技法书
+site_author: Ying Wang
+site_url: https://yingwang.github.io/photography-book/
+repo_url: https://github.com/yingwang/photography-book
+repo_name: yingwang/photography-book
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: 切到夜间模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: 切到日间模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - 首页: README.md
+  - 序言:
+    - 这本书的定位: chapters/00-preface.md
+  - 第一部分 看见:
+    - 第 1 章 看见: chapters/01-seeing.md
+    - 第 2 章 光: chapters/02-light.md
+    - 第 3 章 曝光: chapters/03-exposure.md
+    - 第 4 章 色彩: chapters/04-color.md
+  - 第二部分 工具:
+    - 第 5 章 镜头语言: chapters/05-lens.md
+    - 第 6 章 时机: chapters/06-timing.md
+  - 第三部分 题材:
+    - 第 7 章 人像: chapters/07-portrait.md
+    - 第 8 章 街头: chapters/08-street.md
+    - 第 9 章 风光: chapters/09-landscape.md
+    - 第 10 章 建筑与城市: chapters/10-architecture.md
+    - 第 11 章 弱光与夜景: chapters/11-lowlight.md
+    - 第 12 章 黑白: chapters/12-bw.md
+  - 第四部分 完成:
+    - 第 13 章 后期: chapters/13-postprocess.md
+    - 第 14 章 编辑与持续: chapters/14-edit-and-sustain.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yingwang
