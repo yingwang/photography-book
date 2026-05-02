@@ -2,6 +2,10 @@
 
 > 决定性瞬间不是教条，是物理。一张照片要么时机对，要么不对。这一章讲怎么把"等"和"按"变成本能。
 
+![Eadweard Muybridge, The Horse in Motion, 1878](images/muybridge-horse.jpg)
+
+*Eadweard Muybridge, "The Horse in Motion"，1878。Leland Stanford 当年和朋友打赌：马在奔跑时是不是会有四蹄完全离地的一瞬间？为了赢这个赌，Stanford 雇 Muybridge 在 Palo Alto 的赛道边布了一排 12 台连环相机。每台快门由马蹄踩到的一根细线触发。这组照片证实了赌局的答案 - 第三帧确实四蹄全离地。摄影第一次把人眼看不到的瞬间变成了证据。"时机"作为一个摄影概念从这一刻开始。 (Library of Congress, 公有领域)*
+
 ## 6.1 决定性瞬间的真相
 
 Henri Cartier-Bresson 1952 年提出"决定性瞬间"（The Decisive Moment）。原话比中文翻译更准确：

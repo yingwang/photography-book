@@ -2,6 +2,10 @@
 
 > 风光摄影是慢的题材。它教你的不是按快门，是站在一个地方半天等光。
 
+![Ansel Adams, The Tetons and the Snake River, 1942](images/adams-tetons.jpg)
+
+*Ansel Adams, "The Tetons and the Snake River", 1942。Adams 那时是国家公园局的雇员，每年走 6 个月山路。这一张拍于黄石以南的 Grand Teton。他后来在 *The Negative* 里写过他怎么决定曝光：他用点测光对准远处雪山，再对准近处暗松林，差了 7 档 - 远超当时胶片能记录的范围。**他选了保高光：让前景松林全黑，让山保留细节**。这种「先在脑子里看到最终底片，再选择保留谁」的工作方式他叫 visualization，后世称分区曝光（Zone System）。这张底片 1977 年被装上 Voyager 飞出太阳系，作为人类向外星可能存在的智慧生物展示「地球长这样」的两张代表照片之一。 (NPS, 公有领域)*
+
 ## 9.1 风光不是"拿相机出去玩"
 
 新手把风光理解成"出去玩拍点风景"。这是旅游摄影，不是风光摄影。

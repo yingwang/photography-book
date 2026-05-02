@@ -24,13 +24,12 @@ theme:
         icon: material/brightness-4
         name: 切到日间模式
   features:
-    - navigation.tabs
     - navigation.sections
     - navigation.expand
     - navigation.top
     - navigation.tracking
+    - navigation.indexes
     - toc.follow
-    - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
