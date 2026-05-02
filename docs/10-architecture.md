@@ -14,6 +14,12 @@ Hervé 拍 Unité d'Habitation 不是把整栋楼框进画面。他拍**阴影�
 
 ---
 
+![Eugène Atget, Boutique Place Dauphine, ca. 1900](images/atget-shop.jpg)
+
+*Eugène Atget, "Boutique Place Dauphine"。Atget 拍巴黎建筑的方法是面对面正拍 - 相机水平、垂直线垂直、曝光长到能让所有路过的行人变成虚影消失。这家店面被光打得像一张正立的版画。**没有戏剧性的角度，没有透视的扭曲，只是这家店站在那里被你看着**。当代建筑摄影师 Hélène Binet 说她整个职业生涯都在学 Atget 这种「让建筑自己说话」的方式。 (Wikimedia Commons, 公有领域)*
+
+---
+
 历史上建筑摄影分了三类。每一类的工作方式完全不同。
 
 **建筑学纪录**（Architectural Documentation）。为建筑师 / 杂志 / 建筑学项目而拍。要求精准记录建筑本身。透视绝对正（垂直线垂直、水平线水平）。光均匀，不戏剧。通常移轴镜头（Tilt-Shift）或后期校正。**干净、客观、没有人**。代表是 Hélène Binet、Iwan Baan、Hiroshi Sugimoto 早期。
@@ -114,7 +120,7 @@ Hervé 拍 Unité d'Habitation 不是把整栋楼框进画面。他拍**阴影�
 
 ---
 
-如果你愿意做点什么把这章变成肌肉：
+## 练习
 
 找一栋建筑，从不同角度（正面、仰、俯、侧）各拍一张。回家做透视校正。看校正前后的差异。
 

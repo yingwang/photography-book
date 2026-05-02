@@ -14,6 +14,12 @@ Henri Cartier-Bresson 1932 年在马赛买了一台 Leica，配 50mm Summicron�
 
 ---
 
+![Mathew Brady, Abraham Lincoln, 1860](images/brady-lincoln.jpg)
+
+*Mathew Brady, Abraham Lincoln, 1860 年 2 月 27 日，纽约 Cooper Union。Lincoln 那天去发表一场演讲，演讲前去 Brady 工作室拍了这张肖像。Brady 用 12 英寸湿版玻璃底片，自制大画幅相机，曝光约 8 秒。Lincoln 当时还不出名，是个粗糙、不被看好的伊利诺州律师。这张照片配合演讲在全美流传，被认为是把 Lincoln 推上 1860 年总统大选的关键。Lincoln 自己说：「Brady 和 Cooper Union 演讲让我当了总统。」**镜头不是工具，是政治**。一张正面、中焦、长曝光的肖像，让一个未知的人变得可信任。 (Wikimedia Commons, 公有领域)*
+
+---
+
 新手的理解：长焦能拉近、广角能容下更多。这只对了一半。
 
 更准确的理解：**焦段决定空间被压缩还是被拉伸**。同一个场景，用 24mm 和用 200mm 拍出来是两个完全不同的空间感受。
@@ -118,7 +124,7 @@ Robert Capa 那句「如果你的照片不够好，那是因为你离得不够�
 
 ---
 
-如果你愿意做点什么把这章变成肌肉：
+## 练习
 
 挑一颗定焦（35 或 50），一个月只用它出门。一个月后回看你拍的所有片，会发现你看世界的方式被这颗镜头塑造了。
 
