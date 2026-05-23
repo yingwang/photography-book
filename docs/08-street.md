@@ -4,7 +4,7 @@
 
 ---
 
-![Eugène Atget, Paris courtyard](images/atget-paris.jpg)
+![Eugène Atget, Street Scene, Paris, 1905](images/atget-paris.jpg)
 
 *Eugène Atget 在巴黎拍了 30 多年。他从来不自称艺术家，他的工作是把巴黎在拆迁前留下来。他每天早上 5 点出门，背一台 18×24 cm 木相机和一打玻璃片，街上没人的时候按几张，回家。他临死前几乎没卖出过几张。1927 年他去世后第二年，Berenice Abbott 用 1000 法郎买下了他工作室里几千张底片，运回纽约。**今天大家承认的「街头摄影」，从他这种安静、长年、不为发表的工作开始**。 (Wikimedia Commons, 公有领域)*
 
