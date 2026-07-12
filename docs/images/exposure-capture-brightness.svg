@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">曝光、进光与 ISO 的关系</title>
+  <desc id="desc">光圈和快门共同决定传感器收到的光子数量，ISO 在采集之后改变信号增益，最后形成显示亮度。</desc>
+  <defs>
+    <style>
+      .box{fill:#f7f4ed;stroke:#2b2b2b;stroke-width:3;rx:22}.capture{fill:#fff4cf}.gain{fill:#eaf3ff}.out{fill:#eef8ef}.t{font:700 28px system-ui,sans-serif;fill:#171717}.s{font:21px system-ui,sans-serif;fill:#3d3d3d}.arrow{stroke:#2b2b2b;stroke-width:4;fill:none;marker-end:url(#m)}.label{font:700 20px system-ui,sans-serif;fill:#8a5a00}
+    </style>
+    <marker id="m" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#2b2b2b"/></marker>
+  </defs>
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <rect class="box" x="40" y="65" width="245" height="150"/>
+  <text class="t" x="162" y="120" text-anchor="middle">光圈</text>
+  <text class="s" x="162" y="160" text-anchor="middle">每一刻进来多少光</text>
+  <text class="s" x="162" y="194" text-anchor="middle">同时改变景深</text>
+  <rect class="box" x="40" y="305" width="245" height="150"/>
+  <text class="t" x="162" y="360" text-anchor="middle">快门</text>
+  <text class="s" x="162" y="400" text-anchor="middle">让光积累多久</text>
+  <text class="s" x="162" y="434" text-anchor="middle">同时改变动静</text>
+  <path class="arrow" d="M285 140 C350 140 350 210 405 235"/>
+  <path class="arrow" d="M285 380 C350 380 350 310 405 285"/>
+  <rect class="box capture" x="405" y="175" width="280" height="170"/>
+  <text class="t" x="545" y="230" text-anchor="middle">传感器收到的光</text>
+  <text class="s" x="545" y="274" text-anchor="middle">决定信号与散粒噪声</text>
+  <text class="label" x="545" y="314" text-anchor="middle">这才是曝光量</text>
+  <path class="arrow" d="M685 260 L770 260"/>
+  <rect class="box gain" x="770" y="90" width="190" height="145"/>
+  <text class="t" x="865" y="145" text-anchor="middle">ISO</text>
+  <text class="s" x="865" y="187" text-anchor="middle">信号增益</text>
+  <text class="s" x="865" y="218" text-anchor="middle">不增加光子</text>
+  <path class="arrow" d="M865 235 L865 305"/>
+  <rect class="box out" x="770" y="305" width="360" height="150"/>
+  <text class="t" x="950" y="360" text-anchor="middle">成片亮度与画质</text>
+  <text class="s" x="950" y="404" text-anchor="middle">还受曲线、显示和后期影响</text>
+  <text class="s" x="950" y="438" text-anchor="middle">亮度相同，不等于收光相同</text>
+</svg>
