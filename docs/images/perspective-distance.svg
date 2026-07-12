@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580" role="img" aria-labelledby="title desc">
+  <title id="title">同样主体大小下，拍摄距离如何改变透视</title>
+  <desc id="desc">左侧用广角靠近主体，主体与背景的视角大小差异明显；右侧用长焦后退，背景相对主体显得更大。改变透视的是机位距离。</desc>
+  <defs>
+    <style>.bg{fill:#fff}.panel{fill:#f8f7f2;stroke:#303030;stroke-width:3;rx:20}.cam{fill:#252525}.person{fill:#e7a637}.mount{fill:#91b6d8}.ray{stroke:#b24a35;stroke-width:3;fill:none;stroke-dasharray:9 8}.t{font:700 28px system-ui,sans-serif;fill:#171717}.s{font:20px system-ui,sans-serif;fill:#424242}.n{font:700 21px system-ui,sans-serif;fill:#8c321f}</style>
+  </defs>
+  <rect class="bg" width="1200" height="580"/>
+  <text class="t" x="600" y="45" text-anchor="middle">主体同样大，机位距离改变背景比例</text>
+  <rect class="panel" x="30" y="75" width="550" height="445"/>
+  <text class="t" x="305" y="120" text-anchor="middle">广角：靠近</text>
+  <rect class="cam" x="85" y="290" width="70" height="55" rx="8"/><circle class="cam" cx="155" cy="317" r="25"/>
+  <circle class="person" cx="305" cy="250" r="32"/><rect class="person" x="278" y="282" width="54" height="118" rx="24"/>
+  <path class="mount" d="M455 190 L530 190 L545 425 L430 425 Z"/>
+  <path class="ray" d="M155 317 L278 250"/><path class="ray" d="M155 317 L332 400"/>
+  <path class="ray" d="M155 317 L430 190"/><path class="ray" d="M155 317 L545 425"/>
+  <text class="s" x="305" y="455" text-anchor="middle">主体近，背景远；两者视角比例差得大</text>
+  <text class="n" x="305" y="490" text-anchor="middle">背景显得更小、更远</text>
+  <rect class="panel" x="620" y="75" width="550" height="445"/>
+  <text class="t" x="895" y="120" text-anchor="middle">长焦：后退</text>
+  <rect class="cam" x="665" y="290" width="70" height="55" rx="8"/><circle class="cam" cx="735" cy="317" r="25"/>
+  <circle class="person" cx="955" cy="250" r="32"/><rect class="person" x="928" y="282" width="54" height="118" rx="24"/>
+  <path class="mount" d="M1050 165 L1120 165 L1135 435 L1025 435 Z"/>
+  <path class="ray" d="M735 317 L928 250"/><path class="ray" d="M735 317 L982 400"/>
+  <path class="ray" d="M735 317 L1025 165"/><path class="ray" d="M735 317 L1135 435"/>
+  <text class="s" x="895" y="455" text-anchor="middle">主体与背景都较远；视角比例更接近</text>
+  <text class="n" x="895" y="490" text-anchor="middle">背景相对显得更大、更近</text>
+  <text class="s" x="600" y="558" text-anchor="middle">镜头负责维持取景范围；真正改变透视的是相机所在的位置。</text>
+</svg>

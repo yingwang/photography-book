@@ -56,6 +56,10 @@ nav:
   - 第四部分 完成:
     - 第 13 章 后期: 13-postprocess.md
     - 第 14 章 编辑与持续: 14-edit-and-sustain.md
+  - 随身工具:
+    - 摄影现场工具箱: tools.md
+  - 查证与延伸:
+    - 事实核查与参考: references.md
 
 markdown_extensions:
   - admonition
@@ -87,7 +91,11 @@ plugins:
 
 extra_javascript:
   - javascripts/mathjax.js
+  - javascripts/photography-tools.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:
