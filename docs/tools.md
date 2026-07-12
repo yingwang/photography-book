@@ -46,6 +46,32 @@ t_{\mathrm{new}} = t_{\mathrm{base}}\times 2^{\mathrm{stops}}
   <p class="tool-result" aria-live="polite"><strong data-output="hyperfocal-result">超焦距约 5.14 m；近端约 2.57 m</strong></p>
 </div>
 
+## 景深估算 {#dof-calculator}
+
+输入画幅、焦距、光圈和对焦距离，工具会给出景深的近端、远端和总厚度。它沿用与超焦距相同的弥散圆标准，结果是“可接受清晰”的估算，不是绝对锐利的保证；人像里睫毛与虹膜的取舍，仍要靠放大回放确认。
+
+<div class="photo-tool" data-photo-tool="dof">
+  <label>画幅
+    <select data-field="format">
+      <option value="0.03">全画幅</option>
+      <option value="0.02">APS-C（约 1.5×）</option>
+      <option value="0.015">M4/3</option>
+    </select>
+  </label>
+  <label>实际焦距（mm）
+    <input type="number" data-field="focal" value="85" min="4" max="1200" step="1">
+  </label>
+  <label>光圈 f/
+    <input type="number" data-field="aperture" value="1.8" min="0.7" max="64" step="0.1">
+  </label>
+  <label>对焦距离（m）
+    <input type="number" data-field="distance" value="2" min="0.1" max="1000" step="0.1">
+  </label>
+  <p class="tool-result" aria-live="polite"><strong data-output="dof-result">…</strong></p>
+</div>
+
+第 5 章那笔账可以在这里直接验证：85mm、f/1.8、对焦 2 米，前后清晰的范围合起来只有约 6 厘米——对上了眼睛，鼻尖和耳朵落在清晰之外，是算得出来的必然。
+
 ## 运动快门起点
 
 下面的数值只负责主体运动，不负责景深、噪点或防抖。主体横穿画面、离你较近、最终需要大幅输出时，通常要比建议再快一档；迎面而来、距离较远时，可能可以稍慢。
@@ -62,6 +88,30 @@ t_{\mathrm{new}} = t_{\mathrm{base}}\times 2^{\mathrm{stops}}
     </select>
   </label>
   <p class="tool-result" aria-live="polite"><strong data-output="motion-result">按手持稳定性决定</strong><br><span data-output="motion-note">静物本身不限制快门；请按焦距、防抖、支撑和输出检查相机抖动</span></p>
+</div>
+
+## 星空快门估算 {#star-shutter-calculator}
+
+输入镜头与机身参数，工具会同时给出 500 法则与简化 NPF 法则的曝光时间。500 法则偏乐观，NPF 更保守；拿不准时先按更短的拍一张，放大检查星点，再逐步延长。两条法则各自的假设与边界，第 11 章有完整解释。
+
+<div class="photo-tool" data-photo-tool="star">
+  <label>画幅
+    <select data-field="format">
+      <option value="1|36|1.5">全画幅</option>
+      <option value="1.5|23.5|1.5">APS-C（约 1.5×）</option>
+      <option value="2|17.3|1.3333">M4/3</option>
+    </select>
+  </label>
+  <label>像素数（百万）
+    <input type="number" data-field="mp" value="24" min="6" max="200" step="1">
+  </label>
+  <label>实际焦距（mm）
+    <input type="number" data-field="focal" value="14" min="4" max="200" step="1">
+  </label>
+  <label>光圈 f/
+    <input type="number" data-field="aperture" value="2.8" min="0.7" max="16" step="0.1">
+  </label>
+  <p class="tool-result" aria-live="polite"><strong data-output="star-result">…</strong><br><span data-output="star-note"></span></p>
 </div>
 
 ## 到现场先走这四步

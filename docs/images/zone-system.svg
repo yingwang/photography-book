@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="290" viewBox="0 0 1200 290" role="img" aria-labelledby="title desc">
+  <title id="title">分区系统的十一个区</title>
+  <desc id="desc">从第 0 区的纯黑到第 X 区的纯白共十一格灰阶，相邻两区相差一档曝光，第 V 区是测光表默认的中灰。</desc>
+  <defs>
+    <style>
+      .sw{stroke:#2b2b2b;stroke-width:2}.n{font:700 24px system-ui,sans-serif}.s{font:20px system-ui,sans-serif;fill:#3d3d3d}.label{font:700 20px system-ui,sans-serif;fill:#8a5a00}.tick{stroke:#2b2b2b;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1200" height="290" fill="#ffffff"/>
+  <path class="tick" d="M600 62 v-14 M702 62 v-14 M600 48 H702"/>
+  <text class="label" x="651" y="34" text-anchor="middle">相邻两区 = 一档曝光</text>
+  <rect class="sw" x="42" y="70" width="96" height="110" fill="#000000"/>
+  <rect class="sw" x="144" y="70" width="96" height="110" fill="#1a1a1a"/>
+  <rect class="sw" x="246" y="70" width="96" height="110" fill="#333333"/>
+  <rect class="sw" x="348" y="70" width="96" height="110" fill="#4d4d4d"/>
+  <rect class="sw" x="450" y="70" width="96" height="110" fill="#666666"/>
+  <rect class="sw" x="552" y="70" width="96" height="110" fill="#808080"/>
+  <rect class="sw" x="654" y="70" width="96" height="110" fill="#999999"/>
+  <rect class="sw" x="756" y="70" width="96" height="110" fill="#b3b3b3"/>
+  <rect class="sw" x="858" y="70" width="96" height="110" fill="#cccccc"/>
+  <rect class="sw" x="960" y="70" width="96" height="110" fill="#e6e6e6"/>
+  <rect class="sw" x="1062" y="70" width="96" height="110" fill="#ffffff"/>
+  <text class="n" x="90" y="133" text-anchor="middle" fill="#ffffff">0</text>
+  <text class="n" x="192" y="133" text-anchor="middle" fill="#ffffff">I</text>
+  <text class="n" x="294" y="133" text-anchor="middle" fill="#ffffff">II</text>
+  <text class="n" x="396" y="133" text-anchor="middle" fill="#ffffff">III</text>
+  <text class="n" x="498" y="133" text-anchor="middle" fill="#ffffff">IV</text>
+  <text class="n" x="600" y="133" text-anchor="middle" fill="#171717">V</text>
+  <text class="n" x="702" y="133" text-anchor="middle" fill="#171717">VI</text>
+  <text class="n" x="804" y="133" text-anchor="middle" fill="#171717">VII</text>
+  <text class="n" x="906" y="133" text-anchor="middle" fill="#171717">VIII</text>
+  <text class="n" x="1008" y="133" text-anchor="middle" fill="#171717">IX</text>
+  <text class="n" x="1110" y="133" text-anchor="middle" fill="#171717">X</text>
+  <path class="tick" d="M90 184 v18 M396 184 v18 M600 184 v18 M804 184 v18 M1110 184 v18"/>
+  <text class="s" x="90" y="228" text-anchor="middle">死黑，无细节</text>
+  <text class="s" x="396" y="228" text-anchor="middle">有细节的暗部</text>
+  <text class="s" x="600" y="228" text-anchor="middle">中灰，测光基准</text>
+  <text class="s" x="600" y="256" text-anchor="middle">（约 18% 反射率）</text>
+  <text class="s" x="804" y="228" text-anchor="middle">有细节的亮部</text>
+  <text class="s" x="1110" y="228" text-anchor="middle">纯白，无细节</text>
+</svg>
