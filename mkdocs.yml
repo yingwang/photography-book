@@ -58,7 +58,9 @@ nav:
     - 第 14 章 编辑与持续: 14-edit-and-sustain.md
   - 随身工具:
     - 摄影现场工具箱: tools.md
+    - 现场速查卡: quick-cards.md
   - 查证与延伸:
+    - 索引: book-index.md
     - 事实核查与参考: references.md
 
 markdown_extensions:
