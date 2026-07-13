@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>电视投屏助手 · Cast Helper</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --text: #1c1e21; --muted: #6b7280;
+    --line: #e5e7eb; --accent: #0b57d0; --accent-text: #ffffff;
+    --warn-bg: #fef3c7; --warn-text: #92400e; --ok: #15803d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111418; --card: #1b1f24; --text: #e8eaed; --muted: #9aa0a6;
+      --line: #33383f; --accent: #8ab4f8; --accent-text: #0b1220;
+      --warn-bg: #3a2e12; --warn-text: #fbbf24; --ok: #4ade80;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 16px; background: var(--bg); color: var(--text);
+    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+      "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+  main, header { max-width: 780px; margin: 0 auto; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  h2 { font-size: 19px; margin: 0 0 12px; }
+  .sub { color: var(--muted); margin: 0 0 14px; }
+  section {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 18px 16px; margin: 14px 0;
+  }
+  .chip {
+    display: inline-block; padding: 3px 12px; border-radius: 999px;
+    border: 1px solid var(--line); font-size: 14px; color: var(--muted);
+  }
+  .chip.on { color: var(--ok); border-color: var(--ok); }
+  .warn {
+    background: var(--warn-bg); color: var(--warn-text); border-radius: 10px;
+    padding: 10px 14px; margin: 10px 0; font-size: 14px;
+  }
+  .hidden { display: none !important; }
+  button {
+    font: inherit; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--card); color: var(--text); padding: 8px 16px; cursor: pointer;
+  }
+  button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  input[type=text], input[type=url], select, textarea {
+    font: inherit; width: 100%; padding: 9px 12px; border: 1px solid var(--line);
+    border-radius: 10px; background: var(--bg); color: var(--text);
+  }
+  textarea { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
+  label { font-size: 14px; color: var(--muted); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 10px 0; }
+  .row > .grow { flex: 1 1 240px; }
+  #castbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  google-cast-launcher { width: 34px; height: 34px; --connected-color: var(--accent); --disconnected-color: var(--muted); cursor: pointer; }
+  ol li, ul li { margin: 6px 0; }
+  .bm {
+    display: inline-block; padding: 9px 18px; border-radius: 10px; font-weight: 600;
+    background: var(--accent); color: var(--accent-text); text-decoration: none; cursor: grab;
+  }
+  details { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 10px 0; }
+  summary { cursor: pointer; color: var(--muted); font-size: 14px; }
+  video { width: 100%; max-height: 320px; background: #000; border-radius: 10px; }
+  input[type=range] { flex: 1 1 160px; accent-color: var(--accent); }
+  .time { font-variant-numeric: tabular-nums; font-size: 14px; color: var(--muted); white-space: nowrap; }
+  #controls { border-top: 1px dashed var(--line); margin-top: 14px; padding-top: 12px; }
+  #mediaTitle { font-size: 14px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+    background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 10px;
+    font-size: 14px; max-width: 90vw; opacity: 0; pointer-events: none; transition: opacity .25s;
+    z-index: 99;
+  }
+  #toast.show { opacity: .95; }
+  .fine { font-size: 13px; color: var(--muted); }
+  code { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📺 电视投屏助手</h1>
+  <p class="sub">把不带"投屏"按钮的网站视频,投到支持 Chromecast 的电视上。<br>
+  仅限投放<strong>你自己有权观看</strong>的内容(自己的会员、自己买的课等);不支持、也不会绕过 DRM 版权保护。</p>
+  <div id="castbar">
+    <button id="btnConnect" class="primary">🔍 选择电视</button>
+    <google-cast-launcher></google-cast-launcher>
+    <span id="castState" class="chip">正在加载投屏组件…</span>
+  </div>
+  <div id="envWarn" class="warn hidden"></div>
+</header>
+
+<main>
+
+<section>
+  <h2>方法一(最简单,先试这个):Chrome 直接"投放标签页"</h2>
+  <p>不需要本页面的任何功能,Chrome 自带,几乎所有网站都能用:</p>
+  <ol>
+    <li>电脑上用 Chrome 打开你的会员网站,登录并播放视频;</li>
+    <li>点右上角 <strong>⋮ 菜单 → 投放、保存和分享 → 投放…</strong>(旧版 Chrome 菜单里直接叫「投放…」);</li>
+    <li>选择你的电视,「来源」选 <strong>投放标签页</strong>;</li>
+    <li>把视频<strong>全屏</strong>播放——全屏后 Chrome 会自动优化画质与流畅度。</li>
+  </ol>
+  <p class="fine">安卓手机:下拉快捷设置里的「屏幕投射 / 无线投屏 / Smart View」,或用 Google Home App 镜像屏幕。
+  iPhone / iPad:浏览器无法向 Chromecast 投屏,请改用电脑或安卓设备。</p>
+</section>
+
+<section>
+  <h2>方法二(画质最好):抓视频直链,让电视自己播放</h2>
+  <p>电视直接从源站拉流,不经过你的电脑镜像,清晰度和流畅度都是原生的。步骤:</p>
+  <ol>
+    <li>把这个按钮拖到 Chrome 的书签栏(按 <code>Ctrl/⌘ + Shift + B</code> 显示书签栏):<br><br>
+      <a id="bmLink" class="bm" href="#">🎯 抓视频直链</a>
+    </li>
+    <li>打开你的会员网站,让视频<strong>先播放几秒</strong>;</li>
+    <li>点一下书签栏里的「🎯 抓视频直链」——找到的地址会自动复制;</li>
+    <li>回到本页,粘贴到下面,点「投到电视」。</li>
+  </ol>
+  <div class="row">
+    <input id="urlInput" class="grow" type="url" placeholder="粘贴视频直链,如 https://…/xxx.m3u8 或 …/xxx.mp4" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="row">
+    <input id="titleInput" class="grow" type="text" placeholder="标题(可选,显示在电视上)" autocomplete="off">
+  </div>
+  <div class="row">
+    <button id="btnCast" class="primary">📺 投到电视</button>
+    <button id="btnPreview">先在本页预览</button>
+    <button id="btnTest">用测试视频试一下</button>
+  </div>
+  <details>
+    <summary>高级选项(投放失败时再动)</summary>
+    <div class="row">
+      <label>格式:
+        <select id="typeSelect">
+          <option value="auto" selected>自动识别</option>
+          <option value="application/x-mpegurl">HLS (.m3u8)</option>
+          <option value="application/dash+xml">DASH (.mpd)</option>
+          <option value="video/mp4">MP4</option>
+          <option value="video/webm">WebM</option>
+          <option value="audio/mpeg">MP3</option>
+        </select>
+      </label>
+      <label>HLS 分段:
+        <select id="hlsSegSelect">
+          <option value="auto" selected>自动</option>
+          <option value="ts">TS</option>
+          <option value="fmp4">fMP4</option>
+        </select>
+      </label>
+      <label><input id="liveCheck" type="checkbox"> 这是直播流</label>
+    </div>
+    <p class="fine">安卓手机不方便拖书签:先随便收藏一个页面,再编辑该书签,把"网址"整个替换成下面这段代码;之后在地址栏输入书签名即可调用。</p>
+    <div class="row">
+      <textarea id="bmCode" class="grow" rows="3" readonly></textarea>
+    </div>
+    <div class="row"><button id="btnCopyBm">复制书签代码</button></div>
+  </details>
+
+  <div id="controls" class="hidden">
+    <div id="mediaTitle"></div>
+    <div class="row">
+      <button id="btnPlayPause">⏸ 暂停</button>
+      <button id="btnBack10">⏪ -10s</button>
+      <button id="btnFwd30">⏩ +30s</button>
+      <button id="btnStop">⏹ 停止</button>
+    </div>
+    <div class="row">
+      <input id="seek" type="range" min="0" max="0" step="1" value="0">
+      <span id="timeLabel" class="time">0:00 / 0:00</span>
+    </div>
+    <div class="row">
+      <span class="fine">音量</span>
+      <input id="vol" type="range" min="0" max="1" step="0.05" value="1">
+      <button id="btnMute">🔇 静音</button>
+    </div>
+  </div>
+
+  <div id="previewBox" class="hidden" style="margin-top:14px">
+    <video id="previewVideo" controls playsinline></video>
+    <div class="row">
+      <button id="btnRemote">把预览中的视频投到电视(实验)</button>
+      <span class="fine">若失败,请用上面的「📺 投到电视」或方法一。</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>常见问题</h2>
+  <details><summary>投屏组件加载不出来 / 找不到电视?</summary>
+    <ul>
+      <li>必须用 <strong>Chrome 或 Edge</strong>(电脑或安卓);iOS 上任何浏览器都不行。</li>
+      <li>你的设备要和电视<strong>连同一个 Wi-Fi</strong>。既然你能用 YouTube 投屏,说明网络是通的,这条一般没问题。</li>
+      <li>本页需要通过 <code>https://</code> 或 <code>http://localhost</code> 打开。如果你是双击本地文件打开的(地址栏是 <code>file://</code>),投屏按钮可能失效——在文件所在目录运行 <code>python3 -m http.server 8000</code>,再访问 <code>http://localhost:8000</code>。</li>
+    </ul>
+  </details>
+  <details><summary>直链投过去电视黑屏 / 转圈 / 报错?</summary>
+    <ul>
+      <li>很多会员站的视频地址带防盗链(校验 Cookie、Referer 或 IP),电视自己去拉流会被拒绝。这种情况请退回<strong>方法一「投放标签页」</strong>,它是镜像你的浏览器画面,不受防盗链影响。</li>
+      <li>HLS(.m3u8)直链还要求源站允许跨域(CORS),不允许的也只能用方法一。</li>
+      <li>先点「用测试视频试一下」:测试视频能投说明链路正常,问题出在那个网站的直链上。</li>
+    </ul>
+  </details>
+  <details><summary>Netflix / Disney+ 这类网站能用吗?</summary>
+    <p>不能。这类内容有 DRM 加密,抓不到直链,镜像时也会黑屏——这是版权保护机制,本工具不会也无法绕过。这类平台请用电视上自带的官方 App 登录观看。</p>
+  </details>
+  <details><summary>书签点了说"没找到视频直链"?</summary>
+    <ul>
+      <li>先让视频真正播放几秒再点;</li>
+      <li>有些网站的播放器在 iframe 里:在播放器上右键 →「在新标签页中打开框架」,在新页面里再点书签;</li>
+      <li>地址是 <code>blob:</code> 开头或 DRM 内容的,抓不到,用方法一。</li>
+    </ul>
+  </details>
+  <details><summary>两种方法画质差多少?</summary>
+    <p>方法二是电视原生拉流,能到源站提供的最高清晰度;方法一是屏幕镜像,通常约 720p~1080p、30 帧,追剧完全够用,全屏播放时 Chrome 会自动走优化通道。</p>
+  </details>
+  <p class="fine">提醒:请只投放你自己有合法观看权限的内容,勿用于下载或二次分发。</p>
+</section>
+
+</main>
+
+<div id="toast"></div>
+
+<script type="text/plain" id="bm-src">
+(function () {
+  var found = [];
+  var seen = {};
+  function push(s) {
+    if (!s || !/^https?:/i.test(s)) return;
+    var key = s.split('#')[0];
+    if (seen[key]) return;
+    seen[key] = 1;
+    found.push(key);
+  }
+  var i, els = document.querySelectorAll('video, audio, source');
+  for (i = 0; i < els.length; i++) { push(els[i].currentSrc); push(els[i].src); }
+  try {
+    var res = performance.getEntriesByType('resource');
+    for (i = 0; i < res.length; i++) {
+      var n = res[i].name;
+      if (/\.(m3u8|mpd|mp4|m4v|mov|webm|mp3|m4a|aac|flv)([?#]|$)/i.test(n)) push(n);
+    }
+  } catch (e) {}
+  function score(u) {
+    if (/\.m3u8([?#]|$)/i.test(u)) return 0;
+    if (/\.mpd([?#]|$)/i.test(u)) return 1;
+    if (/\.(mp4|m4v|mov|webm)([?#]|$)/i.test(u)) return 2;
+    return 3;
+  }
+  found.sort(function (a, b) { return score(a) - score(b); });
+  if (!found.length) {
+    alert('没找到视频直链。提示: 1) 先播放视频几秒再点; 2) 播放器在 iframe 里时, 右键播放器选「在新标签页中打开框架」后再试; 3) blob:/DRM 内容抓不到, 请改用 Chrome 的「投放标签页」。');
+    return;
+  }
+  var best = found[0];
+  try { navigator.clipboard.writeText(best); } catch (e) {}
+  window.prompt('找到 ' + found.length + ' 个地址, 最优的一个已复制到剪贴板(也可在此手动复制):', best);
+  if (window.console) console.log('[抓流结果]\n' + found.slice(0, 10).join('\n'));
+})();
+</script>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var castReady = false;
+  var sdkAnnounced = false;
+  var remotePlayer = null;
+  var remoteController = null;
+  var seekDragging = false;
+  var hlsInstance = null;
+
+  var toastTimer = null;
+  function toast(msg, ms) {
+    var t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove('show'); }, ms || 4000);
+  }
+
+  function warn(msg) {
+    var w = $('envWarn');
+    w.textContent = msg;
+    w.classList.remove('hidden');
+  }
+
+  function setChip(text, on) {
+    var c = $('castState');
+    c.textContent = text;
+    c.classList.toggle('on', !!on);
+  }
+
+  // ---------- 环境检测 ----------
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isIOS) {
+    warn('检测到 iOS 设备:iPhone/iPad 的浏览器不支持 Chromecast 投屏,请改用电脑或安卓手机打开本页。');
+  } else if (location.protocol === 'file:') {
+    warn('当前是通过本地文件(file://)打开的,投屏组件通常无法工作。请在文件所在目录运行 python3 -m http.server 8000 后访问 http://localhost:8000,或使用本页的在线地址。');
+  }
+
+  // ---------- Cast SDK ----------
+  window['__onGCastApiAvailable'] = function (available) {
+    sdkAnnounced = true;
+    if (available) {
+      initCast();
+    } else {
+      setChip('此浏览器不支持投屏');
+      warn('投屏组件不可用:请使用电脑或安卓上的 Chrome / Edge 浏览器。方法一(投放标签页)不受影响。');
+    }
+  };
+  window['__castSdkLoadError'] = function () {
+    sdkAnnounced = true;
+    setChip('投屏组件加载失败');
+    warn('无法从 gstatic.com 加载投屏组件(可能被当前网络拦截)。方法一(投放标签页)不受影响。');
+  };
+  setTimeout(function () {
+    if (!sdkAnnounced) {
+      setChip('投屏组件未就绪');
+      if (!isIOS) warn('投屏组件迟迟未加载:请确认用的是 Chrome/Edge,且当前网络能访问 gstatic.com。方法一(投放标签页)不受影响。');
+    }
+  }, 8000);
+
+  function initCast() {
+    try {
+      var ctx = cast.framework.CastContext.getInstance();
+      ctx.setOptions({
+        receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
+        autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+      });
+      castReady = true;
+      ctx.addEventListener(cast.framework.CastContextEventType.CAST_STATE_CHANGED, function (e) {
+        renderCastState(e.castState);
+      });
+      renderCastState(ctx.getCastState());
+
+      remotePlayer = new cast.framework.RemotePlayer();
+      remoteController = new cast.framework.RemotePlayerController(remotePlayer);
+      remoteController.addEventListener(
+        cast.framework.RemotePlayerEventType.ANY_CHANGE, updateRemoteUi);
+    } catch (err) {
+      setChip('投屏初始化失败');
+      warn('投屏初始化失败:' + err);
+    }
+  }
+
+  function renderCastState(state) {
+    var S = cast.framework.CastState;
+    if (state === S.NO_DEVICES_AVAILABLE) {
+      setChip('未发现电视(确认同一 Wi-Fi)');
+      $('btnConnect').textContent = '🔍 选择电视';
+    } else if (state === S.NOT_CONNECTED) {
+      setChip('已发现电视,未连接');
+      $('btnConnect').textContent = '🔍 选择电视';
+    } else if (state === S.CONNECTING) {
+      setChip('连接中…');
+    } else if (state === S.CONNECTED) {
+      var name = '';
+      try {
+        var s = cast.framework.CastContext.getInstance().getCurrentSession();
+        if (s && s.getCastDevice()) name = s.getCastDevice().friendlyName;
+      } catch (e) {}
+      setChip('已连接' + (name ? ':' + name : ''), true);
+      $('btnConnect').textContent = '断开电视';
+    }
+    updateRemoteUi();
+  }
+
+  $('btnConnect').addEventListener('click', function () {
+    if (!castReady) { toast('投屏组件还没就绪,请看页面顶部提示'); return; }
+    var ctx = cast.framework.CastContext.getInstance();
+    if (ctx.getCastState() === cast.framework.CastState.CONNECTED) {
+      ctx.endCurrentSession(true);
+    } else {
+      ctx.requestSession().catch(function (e) {
+        if (e !== 'cancel') toast('连接电视失败:' + e);
+      });
+    }
+  });
+
+  // ---------- 投放 ----------
+  function guessType(url) {
+    var u = url.split(/[?#]/)[0].toLowerCase();
+    if (u.endsWith('.m3u8')) return 'application/x-mpegurl';
+    if (u.endsWith('.mpd')) return 'application/dash+xml';
+    if (u.endsWith('.webm')) return 'video/webm';
+    if (u.endsWith('.mp3')) return 'audio/mpeg';
+    if (u.endsWith('.m4a') || u.endsWith('.aac')) return 'audio/mp4';
+    if (u.endsWith('.mp4') || u.endsWith('.m4v') || u.endsWith('.mov')) return 'video/mp4';
+    if (url.indexOf('.m3u8') !== -1) return 'application/x-mpegurl';
+    if (url.indexOf('.mpd') !== -1) return 'application/dash+xml';
+    return 'video/mp4';
+  }
+
+  function currentUrl() {
+    var url = $('urlInput').value.trim();
+    if (!/^https?:\/\//i.test(url)) {
+      toast('请先粘贴一个 http(s):// 开头的视频直链');
+      return null;
+    }
+    try { localStorage.setItem('castHelperLastUrl', url); } catch (e) {}
+    return url;
+  }
+
+  function effectiveType(url) {
+    var sel = $('typeSelect').value;
+    return sel === 'auto' ? guessType(url) : sel;
+  }
+
+  $('btnCast').addEventListener('click', function () {
+    var url = currentUrl();
+    if (!url) return;
+    if (!castReady) { toast('投屏组件未就绪:请看页面顶部提示,或改用方法一'); return; }
+
+    var ctx = cast.framework.CastContext.getInstance();
+    if (ctx.getCastState() !== cast.framework.CastState.CONNECTED) {
+      ctx.requestSession().then(function () { doLoad(url); }, function (e) {
+        if (e !== 'cancel') toast('未能连接电视:' + e);
+      });
+    } else {
+      doLoad(url);
+    }
+  });
+
+  function doLoad(url) {
+    var ctx = cast.framework.CastContext.getInstance();
+    var session = ctx.getCurrentSession();
+    if (!session) { toast('没有可用的投屏会话,请先选择电视'); return; }
+
+    var type = effectiveType(url);
+    var mediaInfo = new chrome.cast.media.MediaInfo(url, type);
+    mediaInfo.streamType = $('liveCheck').checked ?
+      chrome.cast.media.StreamType.LIVE : chrome.cast.media.StreamType.BUFFERED;
+
+    var md = new chrome.cast.media.GenericMediaMetadata();
+    md.title = $('titleInput').value.trim() ||
+      decodeURIComponent((url.split('/').pop() || '').split('?')[0]) || '正在投屏';
+    mediaInfo.metadata = md;
+
+    if (type === 'application/x-mpegurl') {
+      var seg = $('hlsSegSelect').value;
+      try {
+        if (seg === 'ts') {
+          mediaInfo.hlsSegmentFormat = chrome.cast.media.HlsSegmentFormat.TS;
+          if (chrome.cast.media.HlsVideoSegmentFormat) {
+            mediaInfo.hlsVideoSegmentFormat = chrome.cast.media.HlsVideoSegmentFormat.MPEG2_TS;
+          }
+        } else if (seg === 'fmp4') {
+          if (chrome.cast.media.HlsSegmentFormat.FMP4) {
+            mediaInfo.hlsSegmentFormat = chrome.cast.media.HlsSegmentFormat.FMP4;
+          }
+          if (chrome.cast.media.HlsVideoSegmentFormat) {
+            mediaInfo.hlsVideoSegmentFormat = chrome.cast.media.HlsVideoSegmentFormat.FMP4;
+          }
+        }
+      } catch (e) {}
+    }
+
+    var request = new chrome.cast.media.LoadRequest(mediaInfo);
+    toast('正在把视频发送到电视…');
+    session.loadMedia(request).then(function () {
+      toast('已开始投放 ✅ 可用下方控制条操作');
+    }, function (errorCode) {
+      toast('电视无法播放该地址(' + errorCode + ')。常见原因:防盗链/需登录/不允许跨域。请改用方法一「投放标签页」。', 7000);
+    });
+  }
+
+  $('btnTest').addEventListener('click', function () {
+    $('urlInput').value = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+    $('titleInput').value = '测试视频 Big Buck Bunny';
+    $('typeSelect').value = 'auto';
+    $('liveCheck').checked = false;
+    toast('已填入测试视频,点「📺 投到电视」试试链路');
+  });
+
+  // ---------- 电视遥控 ----------
+  function fmt(t) {
+    if (!isFinite(t) || t < 0) t = 0;
+    t = Math.floor(t);
+    var h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), s = t % 60;
+    function p(x) { return (x < 10 ? '0' : '') + x; }
+    return (h ? h + ':' + p(m) : String(m)) + ':' + p(s);
+  }
+
+  function updateRemoteUi() {
+    var p = remotePlayer;
+    var connected = !!(p && p.isConnected);
+    $('controls').classList.toggle('hidden', !connected);
+    if (!connected) return;
+    $('btnPlayPause').textContent = p.isPaused ? '▶ 播放' : '⏸ 暂停';
+    $('btnMute').textContent = p.isMuted ? '🔊 取消静音' : '🔇 静音';
+    var seek = $('seek');
+    if (!seekDragging) {
+      seek.max = p.duration || 0;
+      seek.value = p.currentTime || 0;
+      seek.disabled = !p.canSeek || !p.duration;
+    }
+    $('timeLabel').textContent =
+      fmt(p.currentTime) + ' / ' + (p.duration ? fmt(p.duration) : '直播');
+    $('vol').value = (typeof p.volumeLevel === 'number') ? p.volumeLevel : 1;
+    var title = (p.mediaInfo && p.mediaInfo.metadata && p.mediaInfo.metadata.title) || '';
+    $('mediaTitle').textContent = title ? ('正在播放:' + title) : '';
+  }
+
+  function seekTo(t) {
+    if (!remotePlayer || !remotePlayer.canSeek) return;
+    remotePlayer.currentTime = Math.max(0, t);
+    remoteController.seek();
+  }
+
+  $('btnPlayPause').addEventListener('click', function () { if (remoteController) remoteController.playOrPause(); });
+  $('btnStop').addEventListener('click', function () { if (remoteController) remoteController.stop(); });
+  $('btnMute').addEventListener('click', function () { if (remoteController) remoteController.muteOrUnmute(); });
+  $('btnBack10').addEventListener('click', function () { if (remotePlayer) seekTo(remotePlayer.currentTime - 10); });
+  $('btnFwd30').addEventListener('click', function () { if (remotePlayer) seekTo(remotePlayer.currentTime + 30); });
+  $('seek').addEventListener('input', function () { seekDragging = true; });
+  $('seek').addEventListener('change', function () {
+    seekDragging = false;
+    seekTo(Number($('seek').value));
+  });
+  $('vol').addEventListener('change', function () {
+    if (!remotePlayer) return;
+    remotePlayer.volumeLevel = Number($('vol').value);
+    remoteController.setVolumeLevel();
+  });
+
+  // ---------- 本地预览 ----------
+  function loadHlsJs(cb) {
+    if (window.Hls) { cb(); return; }
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js';
+    s.onload = cb;
+    s.onerror = function () {
+      toast('hls.js 加载失败(网络受限):无法在本页预览 HLS,但不影响投屏');
+    };
+    document.head.appendChild(s);
+  }
+
+  $('btnPreview').addEventListener('click', function () {
+    var url = currentUrl();
+    if (!url) return;
+    var type = effectiveType(url);
+    var v = $('previewVideo');
+    $('previewBox').classList.remove('hidden');
+    if (hlsInstance) { try { hlsInstance.destroy(); } catch (e) {} hlsInstance = null; }
+
+    if (type === 'application/dash+xml') {
+      toast('本页预览暂不支持 DASH,直接点「📺 投到电视」即可');
+      return;
+    }
+    if (type === 'application/x-mpegurl' && !v.canPlayType('application/vnd.apple.mpegurl')) {
+      loadHlsJs(function () {
+        if (window.Hls && Hls.isSupported()) {
+          hlsInstance = new Hls();
+          hlsInstance.loadSource(url);
+          hlsInstance.attachMedia(v);
+          v.play().catch(function () {});
+        } else {
+          toast('此浏览器无法预览 HLS,但不影响投屏');
+        }
+      });
+    } else {
+      v.src = url;
+      v.play().catch(function () {});
+    }
+  });
+
+  $('btnRemote').addEventListener('click', function () {
+    var v = $('previewVideo');
+    if (!('remote' in v)) { toast('此浏览器不支持 Remote Playback'); return; }
+    v.remote.prompt().catch(function (e) {
+      toast('这个视频无法直接投(常见于 HLS 预览):请用「📺 投到电视」或方法一。' +
+        (e && e.message ? '(' + e.message + ')' : ''));
+    });
+  });
+
+  // ---------- 书签工具 ----------
+  (function setupBookmarklet() {
+    var src = $('bm-src').textContent;
+    var href = 'javascript:' + encodeURIComponent(src);
+    var link = $('bmLink');
+    link.setAttribute('href', href);
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      toast('别在本页点它:把这个按钮拖到书签栏,再到视频网站页面上点');
+    });
+    $('bmCode').value = href;
+    $('btnCopyBm').addEventListener('click', function () {
+      $('bmCode').select();
+      var done = false;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(href).then(function () { toast('已复制书签代码'); });
+        done = true;
+      }
+      if (!done) { document.execCommand('copy'); toast('已复制书签代码'); }
+    });
+  })();
+
+  try {
+    var last = localStorage.getItem('castHelperLastUrl');
+    if (last) $('urlInput').value = last;
+  } catch (e) {}
+})();
+</script>
+<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"
+        onerror="window.__castSdkLoadError && window.__castSdkLoadError()"></script>
+</body>
+</html>
