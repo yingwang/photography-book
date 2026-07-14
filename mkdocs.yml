@@ -62,6 +62,7 @@ nav:
   - 查证与延伸:
     - 索引: book-index.md
     - 事实核查与参考: references.md
+    - 图片来源与复用说明: image-credits.md
 
 markdown_extensions:
   - admonition
@@ -94,7 +95,7 @@ plugins:
 extra_javascript:
   - javascripts/mathjax.js
   - javascripts/photography-tools.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js
 
 extra_css:
   - stylesheets/extra.css

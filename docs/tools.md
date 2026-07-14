@@ -8,7 +8,8 @@
 
 <div class="photo-tool" data-photo-tool="nd">
   <label>基准快门（秒）
-    <input type="number" data-field="base-shutter" value="0.008" min="0.000001" step="any">
+    <input type="text" inputmode="decimal" data-field="base-shutter" value="1/125" aria-describedby="nd-shutter-hint" autocomplete="off" spellcheck="false">
+    <span class="tool-hint" id="nd-shutter-hint">可输入分数（如 1/125）或小数秒（如 0.008）。</span>
   </label>
   <label>ND 减光档数
     <input type="range" data-field="nd-stops" value="10" min="0" max="16" step="1">
@@ -123,4 +124,4 @@ t_{\mathrm{new}} = t_{\mathrm{base}}\times 2^{\mathrm{stops}}
 
 ![曝光、进光与 ISO 的关系](images/exposure-capture-brightness.svg)
 
-*原创示意图：光圈和快门决定传感器收到多少光；ISO 主要改变信号增益与成片亮度。*
+*原创示意图：光圈和快门决定传感器收到多少光；ISO 主要改变信号增益与成片亮度。[图片来源与复用说明](image-credits.md#exposure-capture-brightness)*

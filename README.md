@@ -24,7 +24,7 @@
 
 后期和编辑放在最后，是因为一张本身没有拍好的照片很难被软件真正救回来。先讲怎样拍，再讲怎样完成一张照片，最后讲怎样选出一组作品，这个顺序是有意安排的。
 
-网站另有一页[摄影现场工具箱](https://yingwang.github.io/photography-book/tools/)，提供 ND 延时、超焦距和运动快门的交互计算；[事实核查与参考](https://yingwang.github.io/photography-book/references/)集中列出技术与法律边界所依据的官方资料。
+网站另有一页[摄影现场工具箱](https://yingwang.github.io/photography-book/tools/)，提供 ND 延时、超焦距、景深、运动快门和星空快门五个交互工具；[现场速查卡](https://yingwang.github.io/photography-book/quick-cards/)适合打印随身携带。[事实核查与参考](https://yingwang.github.io/photography-book/references/)集中列出技术与法律边界所依据的官方资料，[图片来源与复用说明](https://yingwang.github.io/photography-book/image-credits/)则逐张记录作品来源、权利提示与本地文件校验值。
 
 ## 仓库结构
 
@@ -48,7 +48,10 @@ photography-book/
 │   ├── 13-postprocess.md       后期
 │   ├── 14-edit-and-sustain.md  编辑与持续
 │   ├── tools.md                摄影现场工具箱
+│   ├── quick-cards.md          现场速查卡
+│   ├── book-index.md           索引
 │   ├── references.md           事实核查与参考
+│   ├── image-credits.md        图片来源与复用说明
 │   ├── images/                 图片
 │   ├── javascripts/            脚本
 │   └── stylesheets/            样式
