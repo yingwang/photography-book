@@ -13,6 +13,29 @@
     return remainder ? `约 ${minutes} 分 ${remainder} 秒` : `约 ${minutes} 分钟`;
   }
 
+  function parseShutterValue(value) {
+    const text = String(value).trim();
+    if (!text) return NaN;
+    const parts = text.split("/");
+    if (parts.length === 1) {
+      const seconds = Number(parts[0]);
+      return Number.isFinite(seconds) && seconds > 0 ? seconds : NaN;
+    }
+    if (parts.length === 2) {
+      const numerator = Number(parts[0]);
+      const denominator = Number(parts[1]);
+      if (
+        Number.isFinite(numerator) &&
+        Number.isFinite(denominator) &&
+        numerator > 0 &&
+        denominator > 0
+      ) {
+        return numerator / denominator;
+      }
+    }
+    return NaN;
+  }
+
   function initNdTool(root) {
     const base = root.querySelector('[data-field="base-shutter"]');
     const stops = root.querySelector('[data-field="nd-stops"]');
@@ -20,8 +43,15 @@
     const result = root.querySelector('[data-output="nd-result"]');
     const update = function () {
       const stopCount = Number(stops.value);
-      stopsOutput.textContent = `${stopCount} 档`;
-      result.textContent = formatShutter(Number(base.value) * Math.pow(2, stopCount));
+      const baseSeconds = parseShutterValue(base.value);
+      stopsOutput.textContent = stopCount + " 档";
+      if (!Number.isFinite(baseSeconds)) {
+        base.setAttribute("aria-invalid", "true");
+        result.textContent = "请输入正数，例如 1/125 或 0.008";
+        return;
+      }
+      base.setAttribute("aria-invalid", "false");
+      result.textContent = formatShutter(baseSeconds * Math.pow(2, stopCount));
     };
     base.addEventListener("input", update);
     stops.addEventListener("input", update);

@@ -16,9 +16,9 @@ Brassaï 在巴黎拍夜景时，常常面对的是另一座城市。雪刚停�
 
 ### 暗并不等于没有层次
 
-![Alfred Stieglitz, Equivalent (cloud series)](images/stieglitz-equivalent.jpg)
+![Alfred Stieglitz, Equivalent, 1925](images/stieglitz-equivalent.jpg)
 
-*Alfred Stieglitz, "Equivalent"。Stieglitz 从 1922 年开始拍云，一拍十余年；这批作品自 1925 年前后起，以 Equivalents（等价物）为名延续下来。这些照片没有地标，也没有具体事件，只有云、亮暗和形状。他想说明摄影不必总依赖具体对象，也可以像音乐一样表达一种内心状态。一片云的弱光、灰度和对比，对他来说就是当时的感受。 (Wikimedia Commons, 公有领域)*
+*Alfred Stieglitz, "Equivalent", 1925。Stieglitz 从 1922 年开始拍云，一拍十余年；这批作品自 1925 年前后起，以 Equivalents（等价物）为名延续下来。这些照片没有地标，也没有具体事件，只有云、亮暗和形状。他想说明摄影不必总依赖具体对象，也可以像音乐一样表达一种内心状态。一片云的弱光、灰度和对比，对他来说就是当时的感受。[图片来源与复用说明](image-credits.md#stieglitz-equivalent)*
 
 ---
 

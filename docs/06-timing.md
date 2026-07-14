@@ -8,7 +8,7 @@
 
 ![Eadweard Muybridge, The Horse in Motion, 1878](images/muybridge-horse.jpg)
 
-*Eadweard Muybridge, "The Horse in Motion", 1878。流传最广的说法是，铁路大亨 Leland Stanford 与人打赌：马奔跑时会不会有四蹄完全离地的一瞬间。赌局的细节其实从未被当时的证据坐实，更可靠的记载是，Stanford 出于养马和运动研究的兴趣，自 1872 年起出资委托 Muybridge 做这项实验。Muybridge 在 Palo Alto 的赛道边布下一排连环相机，每台快门由马经过时绊触的细线触发。这组照片给出了答案：马在某一帧里确实四蹄离地。摄影第一次把人眼看不到的瞬间变成了证据。时机作为一个摄影问题，从这里开始变得非常具体。 (Library of Congress, 公有领域)*
+*Eadweard Muybridge, "The Horse in Motion", 1878。流传最广的说法是，铁路大亨 Leland Stanford 与人打赌：马奔跑时会不会有四蹄完全离地的一瞬间。赌局的细节其实从未被当时的证据坐实，更可靠的记载是，Stanford 出于养马和运动研究的兴趣，自 1872 年起出资委托 Muybridge 做这项实验。Muybridge 在 Palo Alto 的赛道边布下一排连环相机，每台快门由马经过时绊触的细线触发。这组照片给出了答案：马在某一帧里确实四蹄离地。摄影第一次把人眼看不到的瞬间变成了证据。时机作为一个摄影问题，从这里开始变得非常具体。[图片来源与复用说明](image-credits.md#muybridge-horse)*
 
 ---
 
