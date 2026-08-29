@@ -71,7 +71,7 @@ t_{\mathrm{new}} = t_{\mathrm{base}}\times 2^{\mathrm{stops}}
   <p class="tool-result" aria-live="polite"><strong data-output="dof-result">…</strong></p>
 </div>
 
-第 5 章那笔账可以在这里直接验证：85mm、f/1.8、对焦 2 米，前后清晰的范围合起来只有约 6 厘米——对上了眼睛，鼻尖和耳朵落在清晰之外，是算得出来的必然。
+第 5 章那笔账可以在这里直接验证：85mm、f/1.8、对焦 2 米，前后清晰的范围合起来只有约 6 厘米；对准了眼睛，鼻尖和耳朵落在景深之外，是算得出来的必然。
 
 ## 运动快门起点
 
