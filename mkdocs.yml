@@ -42,15 +42,15 @@ extra:
       link: https://github.com/yingwang
   alternate:
     - name: English
-      link: /photography-book/en/
+      link: /photography-book/
       lang: en
     - name: 中文
-      link: /photography-book/
+      link: /photography-book/zh/
       lang: zh
 
 nav:
   - English:
-    - Home: en/README.md
+    - Home: index.md
     - Outline: en/OUTLINE.md
     - Preface:
       - "Beyond Parameters": en/00-preface.md
@@ -78,7 +78,7 @@ nav:
       - Fact-Checking & References: references.md
       - Image Credits: image-credits.md
   - 中文:
-    - 首页: index.md
+    - 首页: zh/index.md
     - 序言:
       - 这本书的定位: 00-preface.md
     - 第一部分 看见:

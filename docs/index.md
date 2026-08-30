@@ -1,59 +1,139 @@
-# 摄影：从按快门到出片
+# Photography: From Shutter to Final Print
 
-> 一本探讨摄影视觉判断力的中文读本。它不从光圈、快门与 ISO 的机械定义讲起，而是从真实的现场直面具体问题：置身场景之中，如何研判是否起机、如何确立焦段与机位，又如何在归来之后，于繁杂的快门记录中甄别出具有力量的画面。
+> A comprehensive, first-principles guide to visual judgment, on-scene decision-making, and intentional image curation for dedicated photographers.
 
-## 这本书写给谁
+**Languages**: [English](index.md) | [中文](zh/index.md)  
+**Read Online**: [yingwang.github.io/photography-book](https://yingwang.github.io/photography-book/)  
+**Interactive Toolkit**: [Field Calculators](tools.md) | [Quick Reference Cards](quick-cards.md)  
+**Outline**: [Detailed Outline](en/OUTLINE.md)
 
-这本书写给已越过新手门槛的摄影者。你熟知相机的操作逻辑，无须他人反复解释光圈、快门与感光度的三角关系。然而在漫长的一天拍摄结束之后，真正令人停步反思的，往往并非参数本身，而是深层的视觉困惑：归来面对屏幕，依然难以决断哪一张真正值得留存，亦不知下一次踏入现场该如何精进观看。
+---
 
-你或许已购置过不少器材，面对 EXIF 数据能清晰读懂每一项设置；也可能每次出门都能累积数百次曝光，归来导入图库，却总是在几张最平稳却平淡的快照中徘徊。凝视名家之作，你能直觉感受到其动人力量，可一旦试图剖析其妙处，往往只能归结于模糊的“语境”或“光感”。这些直觉并非全无道理，只是过于空泛，难以沉淀为下一次身处现场时从容施展的决断力。
+## Who This Book Is For
 
-本书意在将这些隐匿于快门背后的判断系统展开：怎样的光线值得驻足守候，怎样的构图在按下快门前便已注定松散，何时后退一步方见全局秩序，何时逼近咫尺才能剥离干扰，35mm 与 50mm 之间究竟承载着怎样的空间张力，黑白又为何绝非调色受挫时的妥协退路。摄影从来不只是食指下压的一瞬动作，它深植于此前的凝神观看、现场的严谨取舍、归来后的冷峻甄别，以及反思审视时能否清醒辨析哪些画面本可割舍。
+This book is written for photographers who have already crossed the beginner threshold. You know the mechanics of your camera, comfortably understand the exposure triangle, and can readily read EXIF metadata.
 
-## 这本书会少讲什么
+Yet after a long day of shooting on the street or in the wild, when you sit down before your display, the real dilemmas are rarely about parameters. They are deep, silent questions of visual judgment:
+- *Why did that breathtaking light fail to translate into a compelling frame?*
+- *Why do hundreds of exposures yield only a couple of mediocre snapshots?*
+- *When looking at masterworks, you instinctively feel their power, but cannot pinpoint what separates your own work from that level of visual resonance.*
 
-本书不耗费篇幅重复基础参数的机械定义，亦不依附于特定机型的功能菜单。书中虽会涉及 Sony、Fujifilm、Leica 乃至中画幅 GFX 系统的特性，但皆作为阐释视觉与操控机制的范例，而非器材横评。
+This book aims to deconstruct the hidden chain of decisions behind the shutter:
+- What quality of light is truly worth waiting for;
+- What compositions are destined to fall apart before the shutter is pressed;
+- When to step back to establish environmental order, and when to step in close to isolate raw texture;
+- Why switching between 35mm and 50mm is fundamentally about spatial tension, not just field of view;
+- Why black and white is never a lazy fallback for failed color grading.
 
-这同样不是一本罗列调色滑块的操作手册。后期章节着眼于成片过程中的影调与色彩决断：何处可以果断压暗，何处细节值得保留，色调是顺应现场原生光线，还是整组作品需要建立统一的色彩秩序。
+Photography has never been just the mechanical instant of pressing a button. It is rooted in deep prior observation, rigorous on-scene elimination, ruthless post-shoot curation, and the mental discipline to recognize which frames should have been left unshot.
 
-本书亦尽量避开抽象空泛的艺术说辞。现场的追问往往具体而严谨：主体立于何处，受光朝向如何，背景杂乱该如何收敛，暗部是否扎实下沉，连续抓拍中哪一帧的神态最具张力。将这些具体层面的决断逐一梳理透彻，远比熟记教条更能指引下一次踏入现场时的决断。
+---
 
-## 先把几个常见念头放一放
+## What This Book Skips
 
-若你近期常有更换器材的冲动，不妨先慢下来。新机身与新镜头固然能带来即时的操作愉悦，然而若瓶颈源于观看习惯、等待耐心或选片准则，频繁更替系统往往无法从根本上消解这些困境。
+- **No mechanical parameter definitions**: We do not waste pages re-explaining what shutter speed or f-stop numbers mean in the abstract.
+- **No brand worship or gear reviews**: While camera systems from Sony, Fujifilm, Leica, and medium-format GFX are referenced, they serve strictly as concrete examples of optical geometry and handling ergonomics, not buyer guides.
+- **No cookie-cutter preset recipes**: Post-processing chapters focus on tonal hierarchy, dynamic range allocation, and color harmony rather than slider copy-pasting.
+- **No vacuous art jargon**: On-scene questions are concrete and actionable—*Where does the subject stand? Where does the light fall? How do you suppress background clutter? Are your shadows solidly anchored? In a burst sequence, which micro-gesture holds authentic tension?*
 
-极致清晰固然是光学品质的体现，但它解决的终究只是技术记录的范畴。分辨率、解析力与传感器像素能证明场景被完整拓印，却无法替代光线、时机、空间关系与作者意志的构建。一张纤毫毕现的照片，若缺乏内在秩序，同样难以在记忆中留下痕迹。
+---
 
-后期处理亦是同理。大动态范围合成、浓艳色彩或风格化预设，并无绝对禁用的理由；但若观者的目光首先被处理痕迹所俘获，画面本身的情感与结构反而退居其后，作品便难以经受反复品读。
+## The Four-Part Architecture
 
-至于“决定性瞬间”，Cartier-Bresson 的经典论述固然启迪深远，但街头摄影的疆域宽广，无须被单一教条所禁锢。
+```mermaid
+flowchart LR
+    subgraph P1["<b>Part I: Seeing</b>"]
+        direction TB
+        C1["01. Visual Perception"]
+        C2["02. Light & Direction"]
+        C3["03. Exposure as Intent"]
+        C4["04. Color Harmony"]
+        C1 --> C2 --> C3 --> C4
+    end
 
-## 怎么读
+    subgraph P2["<b>Part II: Tools</b>"]
+        direction TB
+        C5["05. Lens Language"]
+        C6["06. Timing & Anticipation"]
+        C5 --> C6
+    end
 
-阅读时不妨顺次推进，前四章尤为关键。看见、光、曝光与色彩，是支撑后续所有题材篇章的基石。若径直翻阅人像、街头或风光章节，或许能迅速掌握若干参数模板，但若未明晰这些模板因何成立、何时当弃，终究仍需回到前述的底层判断之中。
+    subgraph P3["<b>Part III: Genres</b>"]
+        direction TB
+        C7["07. Portraiture"]
+        C8["08. Street"]
+        C9["09. Landscape"]
+        C10["10. Architecture"]
+        C11["11. Low Light"]
+        C12["12. Black & White"]
+        C7 --> C8 --> C9 --> C10 --> C11 --> C12
+    end
 
-题材各章可先从个人专注的领域切入，但亦建议通读陌生的主题。风光中的沉静守候，街头中的敏锐应变，人像中对神态的觉察，建筑中对几何与体量的剖析，弱光中对幽微暗部的从容接纳，彼此皆有相通的视觉滋养。你未必要涉猎全部题材，但领会其各自训练的视觉侧重，能让你在回到熟悉的领域时拥有更深沉的审视眼光。
+    subgraph P4["<b>Part IV: Completion</b>"]
+        direction TB
+        C13["13. Post-Processing"]
+        C14["14. Curation & Series"]
+        C13 --> C14
+    end
 
-后期与编辑置于文末，源于一个朴素事实：前期未立的画面，极难单纯依赖软件救赎；一组缺乏内在逻辑的照片，亦无法凭借排版与文案重获新生。先明晰如何观看与捕捉，再探讨如何完善单张画面的影调，最终步入多张作品的编辑与编排，这一脉络正是摄影创作自然生长的路径。
+    P1 --> P2 --> P3 --> P4
 
-## 三种阅读路径
+    classDef chapter fill:#ffffff,stroke:#555,color:#222
+    class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14 chapter
 
-| 你的目标 | 建议顺序 | 这条路径训练什么 |
-|---|---|---|
-| 系统重建基础 | 序言 → 第 1–6 章 → 常拍题材 → 第 13–14 章 | 从观看、光线和曝光一路建立判断链 |
-| 下次出门就用 | 常拍题材章 → [摄影现场工具箱](tools.md) → 第 14 章 | 带着一个明确练习拍摄，再完成选片 |
-| 查一个具体问题 | [索引](book-index.md)、站内搜索或章节目录 → [事实核查与参考](references.md) | 区分经验起点、技术原理与法律边界 |
+    style P1 fill:#f5f5f5,stroke:#333333,color:#111111
+    style P2 fill:#fff8e1,stroke:#f57f17,color:#e65100
+    style P3 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    style P4 fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+```
 
-书中的参数表是起点，不是处方。画幅、拍摄距离、主体速度、输出尺寸和当地规则都会改变答案；散布在各章的案例推演，会示范怎样从场景条件走到选择。
+---
 
-## 随身工具
+## Table of Contents
 
-[摄影现场工具箱](tools.md)提供 ND 延时、超焦距、景深、运动快门和星空快门五个交互计算器。它们会把假设和结果同时写出来，方便你在现场先得到一个可检验的起点，再用直方图、景深预览和实际回放修正。[现场速查卡](quick-cards.md)把散在各章、出门前最值得再看一眼的数字收拢成可打印的一至两张 A4。
+### Part I: Seeing (The Foundation)
+| Chapter | Title | Core Focus |
+|:---:|---|---|
+| 00 | [Preface: Beyond Parameters](en/00-preface.md) | Why technical perfection is not enough; bridging the gap between "correct" and "compelling". |
+| 01 | [Seeing: The First Filter](en/01-seeing.md) | Deconstructing visual clutter, isolating focal hierarchy, and training deliberate observation. |
+| 02 | [Light: Geometry and Quality](en/02-light.md) | Hard vs soft light, directional angles, edge highlights, and reading the subtle decay of illumination. |
+| 03 | [Exposure as Creative Intent](en/03-exposure.md) | Moving past mid-gray; Zone System principles in digital sensors; high-key and low-key grounding. |
+| 04 | [Color: Temperature and Emotion](en/04-color.md) | Color palettes, complementary contrast, color separation vs monochromatic dominance. |
 
-## 开始读
+### Part II: Tools & Timing (The Execution)
+| Chapter | Title | Core Focus |
+|:---:|---|---|
+| 05 | [Lens Language: Perspective and Space](en/05-lens.md) | 28mm intimacy, 35mm environmental context, 50mm human gaze, 85mm+ compression geometry. |
+| 06 | [Timing: The Decisive Stance](en/06-timing.md) | Anticipating micro-gestures, predictive framing, burst discipline, and the rhythm of the street. |
 
-从 [序言](00-preface.md) 开始。
+### Part III: Genres & Applications (The Field)
+| Chapter | Title | Core Focus |
+|:---:|---|---|
+| 07 | [Portraiture: Presence and Truth](en/07-portrait.md) | Rapport building, environmental portraits, natural light sculpting, authentic expression over posed stiffness. |
+| 08 | [Street: Reading the Flow](en/08-street.md) | Ethical spatial engagement, multi-layered framing, hunting vs fishing methods, zone focusing. |
+| 09 | [Landscape: Silence and Structure](en/09-landscape.md) | Foreground grounding, atmospheric depth, dynamic weather scouting, avoiding generic postcard tropes. |
+| 10 | [Architecture: Geometry and Light](en/10-architecture.md) | Converging lines, perspective control, tectonic materiality, human scale against monolithic forms. |
+| 11 | [Low Light: Embracing the Shadows](en/11-lowlight.md) | Handheld stabilization thresholds, blue hour transitions, mixed-temperature ambient sources. |
+| 12 | [Black & White: Tonal Architecture](en/12-bw.md) | Stripping chromatic distraction; evaluating contrast ratios, texture gradients, and silver-halide aesthetics. |
 
-## License
+### Part IV: Completion & Legacy (The Workflow)
+| Chapter | Title | Core Focus |
+|:---:|---|---|
+| 13 | [Post-Processing: Refining Tonal Values](en/13-postprocess.md) | RAW histogram evaluation, tone curves, local dodging and burning, sharpening thresholds without artifacts. |
+| 14 | [Curation & Long-term Practice](en/14-edit-and-sustain.md) | Ruthless sequencing, contact-sheet culling, building cohesive photo essays, sustaining visual curiosity. |
 
-CC BY-NC-SA 4.0，非商用、署名、相同方式共享。
+---
+
+## Interactive Field Toolkit
+
+- **[Field Calculators](tools.md)**: 5 interactive JavaScript tools for hyperfocal distance, depth of field, ND filter long exposure, motion freeze shutter speeds, and astrophotography NPF rule.
+- **[Field Quick Reference Cards](quick-cards.md)**: Printable pocket cheatsheets for essential field numbers and mental checklists.
+- **[Fact-checking & References](references.md)**: Scientific references on sensor dynamic range, optical physics, and legal boundaries.
+- **[Image Credits & Rights](image-credits.md)**: Full attribution, museum metadata, CC licenses, and checksums for all historical plates.
+
+---
+
+## Author & License
+
+**Author**: Ying Wang ([@yingwang](https://github.com/yingwang))  
+**License**: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
