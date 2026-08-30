@@ -52,10 +52,31 @@ nav:
   - English:
     - Home: en/README.md
     - Outline: en/OUTLINE.md
-    - Field Toolkit: tools.md
-    - Quick Reference Cards: quick-cards.md
-    - Fact-Checking & References: references.md
-    - Image Credits: image-credits.md
+    - Preface:
+      - "Beyond Parameters": en/00-preface.md
+    - "Part I · Seeing":
+      - "Ch. 1 — Seeing: The First Filter": en/01-seeing.md
+      - "Ch. 2 — Light: Geometry & Quality": en/02-light.md
+      - "Ch. 3 — Exposure: The Creative Decision": en/03-exposure.md
+      - "Ch. 4 — Color: Temperature & Emotion": en/04-color.md
+    - "Part II · Tools & Timing":
+      - "Ch. 5 — Lens Language: Space & Proximity": en/05-lens.md
+      - "Ch. 6 — Timing: Anticipation & Stance": en/06-timing.md
+    - "Part III · Genres":
+      - "Ch. 7 — Portraiture: Presence & Truth": en/07-portrait.md
+      - "Ch. 8 — Street: Reading the Flow": en/08-street.md
+      - "Ch. 9 — Landscape: Silence & Structure": en/09-landscape.md
+      - "Ch. 10 — Architecture & Geometry": en/10-architecture.md
+      - "Ch. 11 — Low Light & Shadows": en/11-lowlight.md
+      - "Ch. 12 — Black & White: Tonal Architecture": en/12-bw.md
+    - "Part IV · Completion":
+      - "Ch. 13 — Post-Processing: Refining RAW": en/13-postprocess.md
+      - "Ch. 14 — Curation & Long-term Practice": en/14-edit-and-sustain.md
+    - Field Reference:
+      - Field Toolkit: tools.md
+      - Quick Reference Cards: quick-cards.md
+      - Fact-Checking & References: references.md
+      - Image Credits: image-credits.md
   - 中文:
     - 首页: index.md
     - 序言:
