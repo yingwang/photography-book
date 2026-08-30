@@ -1,5 +1,5 @@
-site_name: 摄影：从按快门到出片
-site_description: 一本系统讲摄影判断力的中文技法书
+site_name: "Photography: From Shutter to Final Print"
+site_description: "A comprehensive guide on visual judgment, scene decision-making, and image curation for dedicated photographers."
 site_author: Ying Wang
 site_url: https://yingwang.github.io/photography-book/
 repo_url: https://github.com/yingwang/photography-book
@@ -7,7 +7,7 @@ repo_name: yingwang/photography-book
 
 theme:
   name: material
-  language: zh
+  language: en
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -15,15 +15,17 @@ theme:
       accent: amber
       toggle:
         icon: material/brightness-7
-        name: 切到夜间模式
+        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
       accent: amber
       toggle:
         icon: material/brightness-4
-        name: 切到日间模式
+        name: Switch to light mode
   features:
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.top
@@ -34,35 +36,55 @@ theme:
     - search.highlight
     - content.code.copy
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yingwang
+  alternate:
+    - name: English
+      link: /photography-book/en/
+      lang: en
+    - name: 中文
+      link: /photography-book/
+      lang: zh
+
 nav:
-  - 首页: index.md
-  - 序言:
-    - 这本书的定位: 00-preface.md
-  - 第一部分 看见:
-    - 第 1 章 看见: 01-seeing.md
-    - 第 2 章 光: 02-light.md
-    - 第 3 章 曝光: 03-exposure.md
-    - 第 4 章 色彩: 04-color.md
-  - 第二部分 工具:
-    - 第 5 章 镜头语言: 05-lens.md
-    - 第 6 章 时机: 06-timing.md
-  - 第三部分 题材:
-    - 第 7 章 人像: 07-portrait.md
-    - 第 8 章 街头: 08-street.md
-    - 第 9 章 风光: 09-landscape.md
-    - 第 10 章 建筑与城市: 10-architecture.md
-    - 第 11 章 弱光与夜景: 11-lowlight.md
-    - 第 12 章 黑白: 12-bw.md
-  - 第四部分 完成:
-    - 第 13 章 后期: 13-postprocess.md
-    - 第 14 章 编辑与持续: 14-edit-and-sustain.md
-  - 随身工具:
-    - 摄影现场工具箱: tools.md
-    - 现场速查卡: quick-cards.md
-  - 查证与延伸:
-    - 索引: book-index.md
-    - 事实核查与参考: references.md
-    - 图片来源与复用说明: image-credits.md
+  - English:
+    - Home: en/README.md
+    - Outline: en/OUTLINE.md
+    - Field Toolkit: tools.md
+    - Quick Reference Cards: quick-cards.md
+    - Fact-Checking & References: references.md
+    - Image Credits: image-credits.md
+  - 中文:
+    - 首页: index.md
+    - 序言:
+      - 这本书的定位: 00-preface.md
+    - 第一部分 看见:
+      - 第 1 章 看见: 01-seeing.md
+      - 第 2 章 光: 02-light.md
+      - 第 3 章 曝光: 03-exposure.md
+      - 第 4 章 色彩: 04-color.md
+    - 第二部分 工具:
+      - 第 5 章 镜头语言: 05-lens.md
+      - 第 6 章 时机: 06-timing.md
+    - 第三部分 题材:
+      - 第 7 章 人像: 07-portrait.md
+      - 第 8 章 街头: 08-street.md
+      - 第 9 章 风光: 09-landscape.md
+      - 第 10 章 建筑与城市: 10-architecture.md
+      - 第 11 章 弱光与夜景: 11-lowlight.md
+      - 第 12 章 黑白: 12-bw.md
+    - 第四部分 完成:
+      - 第 13 章 后期: 13-postprocess.md
+      - 第 14 章 编辑与持续: 14-edit-and-sustain.md
+    - 随身工具:
+      - 摄影现场工具箱: tools.md
+      - 现场速查卡: quick-cards.md
+    - 查证与延伸:
+      - 索引: book-index.md
+      - 事实核查与参考: references.md
+      - 图片来源与复用说明: image-credits.md
 
 markdown_extensions:
   - admonition
@@ -74,6 +96,8 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.tabbed:
@@ -89,8 +113,8 @@ markdown_extensions:
 plugins:
   - search:
       lang:
-        - zh
         - en
+        - zh
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -99,8 +123,3 @@ extra_javascript:
 
 extra_css:
   - stylesheets/extra.css
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/yingwang
