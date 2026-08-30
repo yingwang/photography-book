@@ -4,7 +4,7 @@
 
 **Languages**: [English](index.md) | [中文](zh/index.md)  
 **Read Online**: [yingwang.github.io/photography-book](https://yingwang.github.io/photography-book/)  
-**Interactive Toolkit**: [Field Calculators](tools.md) | [Quick Reference Cards](quick-cards.md)  
+**Interactive Toolkit**: [Field Calculators](en/tools.md) | [Quick Reference Cards](en/quick-cards.md)  
 **Outline**: [Detailed Outline](en/OUTLINE.md)
 
 ---
@@ -126,10 +126,10 @@ flowchart LR
 
 ## Interactive Field Toolkit
 
-- **[Field Calculators](tools.md)**: 5 interactive JavaScript tools for hyperfocal distance, depth of field, ND filter long exposure, motion freeze shutter speeds, and astrophotography NPF rule.
-- **[Field Quick Reference Cards](quick-cards.md)**: Printable pocket cheatsheets for essential field numbers and mental checklists.
-- **[Fact-checking & References](references.md)**: Scientific references on sensor dynamic range, optical physics, and legal boundaries.
-- **[Image Credits & Rights](image-credits.md)**: Full attribution, museum metadata, CC licenses, and checksums for all historical plates.
+- **[Field Calculators](en/tools.md)**: 5 interactive JavaScript tools for hyperfocal distance, depth of field, ND filter long exposure, motion freeze shutter speeds, and astrophotography NPF rule.
+- **[Field Quick Reference Cards](en/quick-cards.md)**: Printable pocket cheatsheets for essential field numbers and mental checklists.
+- **[Fact-checking & References](en/references.md)**: Scientific references on sensor dynamic range, optical physics, and legal boundaries.
+- **[Image Credits & Rights](en/image-credits.md)**: Full attribution, museum metadata, CC licenses, and checksums for all historical plates.
 
 ---
 

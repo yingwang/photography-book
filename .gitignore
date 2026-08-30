@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .DS_Store
 IMPROVEMENTS.md
+_translate/
