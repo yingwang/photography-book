@@ -85,7 +85,7 @@ Photography has never been just the mechanical instant of pressing a button. It 
 
 # 摄影：从按快门到出片
 
-> 一本写给摄影进阶学习者的读本。它不从光圈、快门与 ISO 的机械定义讲起，而是直面拍摄现场最真实的困惑：置身现场如何研判光线走向，如何决断机位与焦段，如何把握一张照片的影调明暗，以及归来之后如何甄选、编排并构筑一组完整的作品。
+> 一本写给摄影进阶学习者的读本。它不从光圈、快门与 ISO 的机械定义讲起，而是直面拍摄现场最真实的困惑：置身现场如何权衡光线走向，如何决断机位与焦段，如何把握一张照片的影调明暗，以及归来之后如何甄选、编排并构筑一组完整的作品。
 
 **在线阅读**：[yingwang.github.io/photography-book](https://yingwang.github.io/photography-book/)  
 **大纲总览**：[详细大纲](docs/book-index.md)
